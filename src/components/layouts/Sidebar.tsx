@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useSidebarStore } from "@/store/sidebarStore";
@@ -17,7 +17,6 @@ import {
   ChevronRight,
   User,
   LogOut,
-  Shield,
 } from "lucide-react";
 
 interface MenuItem {
@@ -62,12 +61,17 @@ export default function Sidebar() {
 
   const sidebarContent = (
     <>
-      {/* Logo */}
-      <div className="p-6 border-b border-primary-700 flex items-center gap-3">
-        <div className="bg-white/10 p-2 rounded-lg">
-          <Shield className="w-6 h-6 text-white" />
+      {/* Logo con imagen */}
+      <div className="p-6 border-b border-primary-700 flex flex-col items-center gap-3 bg-white">
+        <div className="relative w-100 h-30 rounded-xl overflow-hidde p-2">
+          <Image
+            src="/logo-firext.png"
+            alt="Firext Logo"
+            fill
+            className="object-contain"
+            priority
+          />
         </div>
-        <span className="text-xl font-bold tracking-tight">Firext Ventas</span>
       </div>
 
       {/* Menú */}
@@ -140,12 +144,14 @@ export default function Sidebar() {
           href="/perfil"
           className="flex items-center gap-3 px-2 py-2 rounded-lg hover:bg-primary-700 transition-colors"
         >
-          <User className="w-5 h-5" />
-          <div>
-            <p className="text-sm font-medium">
+          <div className="bg-white/10 p-1.5 rounded-full">
+            <User className="w-4 h-4" />
+          </div>
+          <div className="flex-1 min-w-0">
+            <p className="text-sm font-medium truncate">
               {user?.nombre} {user?.apellido}
             </p>
-            <p className="text-xs text-primary-200">@{user?.username}</p>
+            <p className="text-xs text-primary-200 truncate">@{user?.username}</p>
           </div>
         </Link>
         <button

@@ -6,11 +6,12 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { motion, AnimatePresence } from "framer-motion";
-import { User, Lock, LogIn, Shield, AlertCircle } from "lucide-react";
+import { User, Lock, LogIn, AlertCircle } from "lucide-react";
 import { useAuthStore } from "@/store/authStore";
 import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 import { Toaster } from "react-hot-toast";
+import Image from "next/image";
 
 const loginSchema = z.object({
   username: z
@@ -35,6 +36,7 @@ export default function LoginPage() {
   const { login, isLoading, token, user } = useAuthStore();
   const [showAnimation, setShowAnimation] = useState(false);
   const [serverError, setServerError] = useState("");
+  
   useEffect(() => {
     if (token && user) {
       router.push("/dashboard");
@@ -128,26 +130,18 @@ export default function LoginPage() {
               transition={{ delay: 0.2, duration: 0.4 }}
               className="text-center mb-8"
             >
-              <div
-                className="inline-flex items-center justify-center w-20 h-20 rounded-2xl mb-4 mx-auto"
-                style={{ backgroundColor: "#f9731620" }}
-              >
-                <Shield className="w-10 h-10" style={{ color: "#f97316" }} />
+              {/* Logo de Firext más grande */}
+              <div className="flex justify-center mb-6">
+                <div className="relative w-200 h-60 rounded-2xl overflow-hidde">
+                  <Image
+                    src="/logo-firext.png"
+                    alt="Firext Logo"
+                    fill
+                    className="object-contain p-3"
+                    priority
+                  />
+                </div>
               </div>
-              <h1
-                className="text-3xl font-bold"
-                style={{
-                  background: "linear-gradient(135deg, #f97316, #facc15)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
-                Firext Gestion Ventas
-              </h1>
-              <p className="mt-2" style={{ color: "#64748b" }}>
-                Inicia sesión en tu cuenta
-              </p>
             </motion.div>
 
             {/* Form Card */}
