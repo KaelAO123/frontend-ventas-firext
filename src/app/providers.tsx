@@ -9,7 +9,6 @@ export function Providers({ children }: { children: React.ReactNode }) {
   const { token, getUser, isInitialized } = useAuthStore();
 
   useEffect(() => {
-    // Si hay token pero no hay usuario, obtenerlo
     if (token && isInitialized) {
       getUser();
     }

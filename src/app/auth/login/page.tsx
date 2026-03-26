@@ -222,30 +222,6 @@ export default function LoginPage() {
                   className="mt-6 pt-6"
                   style={{ borderTop: "1px solid #e2e8f0" }}
                 >
-                  <div className="bg-primary/5 rounded-lg p-3">
-                    <p
-                      className="text-xs text-center font-medium"
-                      style={{ color: "#f97316" }}
-                    >
-                      📝 Credenciales de prueba:
-                    </p>
-                    <div
-                      className="mt-2 space-y-1 text-xs text-center"
-                      style={{ color: "#64748b" }}
-                    >
-                      <p>
-                        <span className="font-medium">Usuario:</span> admin
-                      </p>
-                      <p>
-                        <span className="font-medium">Contraseña:</span>{" "}
-                        password
-                      </p>
-                      <p className="text-[10px] mt-2 text-text-muted">
-                        * Usa las credenciales que tengas registradas en tu base
-                        de datos
-                      </p>
-                    </div>
-                  </div>
                 </motion.div>
               </div>
             </motion.div>

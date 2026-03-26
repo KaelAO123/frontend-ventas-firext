@@ -69,7 +69,6 @@ export default function EgresosPage() {
     }
   };
 
-  // Limpiar filtros
   const clearFilters = () => {
     setFilters({
       search: '',
@@ -79,7 +78,6 @@ export default function EgresosPage() {
     });
   };
 
-  // Definir columnas para DataTable
   const columns = [
     {
       header: 'ID',
